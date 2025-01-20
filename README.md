@@ -144,6 +144,10 @@ Parameters
 ```java
 public class FaceDetectionParam {
     public boolean check_liveness = false;
+    public boolean check_eye_closeness = false;
+    public boolean check_face_occlusion = false;
+    public boolean check_mouth_opened = false;
+    public boolean estimate_age_gender = false;
     public int check_liveness_level = 0; // 0: more accurate model, 1: lighter model
 }
 ```
@@ -154,10 +158,19 @@ public class FaceBox {
     public int y1;
     public int x2;
     public int y2;
-    public float liveness;
     public float yaw;
     public float roll;
     public float pitch;
+    public float face_quality;
+    public float face_luminance;
+    public float liveness;
+    public float left_eye_closed;
+    public float right_eye_closed;
+    public float face_occlusion;
+    public float mouth_opened;
+    public int age;
+    public int gender;
+    public float[] landmarks_68;
 }
 ```
 <br/>
