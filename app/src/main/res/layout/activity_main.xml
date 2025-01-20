@@ -42,13 +42,45 @@
         tools:layout_editor_absoluteX="16dp">
 
         <Button
+            android:id="@+id/buttonDetect"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.5"
+            android:text="Detect Face"
+            app:cornerRadius="27dp"
+            app:iconTint="@color/buttonTextColor" />
+
+        <Button
+            android:id="@+id/buttonCapture"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:text="Smart Capture"
+            app:cornerRadius="27dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytButtons2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/lytButtons1"
+        tools:layout_editor_absoluteX="16dp">
+
+        <Button
             android:id="@+id/buttonEnroll"
             style="@style/ButtonStyle"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_marginRight="10dp"
             android:layout_weight="0.5"
-            android:text="Register"
+            android:text="Add User"
             app:cornerRadius="27dp"
             app:iconTint="@color/buttonTextColor" />
 
@@ -59,7 +91,7 @@
             android:layout_height="54dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="0.5"
-            android:text="Identify"
+            android:text="Match Face"
             app:cornerRadius="27dp" />
 
     </LinearLayout>
@@ -74,7 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lytButtons1" />
+        app:layout_constraintTop_toBottomOf="@id/lytButtons2" />
 
     <TextView
         android:id="@+id/textWarning"

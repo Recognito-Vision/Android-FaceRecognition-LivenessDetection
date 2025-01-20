@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -15,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <activity
             android:name=".CameraActivityKt"
             android:screenOrientation="portrait"
@@ -24,14 +35,17 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
+            android:name=".DetectionResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".CameraActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:name=".SmartCaptureActivityKt"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

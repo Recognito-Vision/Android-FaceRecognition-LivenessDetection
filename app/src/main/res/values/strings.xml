@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FaceDemo</string>
+    <string name="app_name">FaceSDK</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="setting">Settings</string>
     <string name="flip_camera">Flip Camera</string>

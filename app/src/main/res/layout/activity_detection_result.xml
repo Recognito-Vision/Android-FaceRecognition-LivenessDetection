@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Detection Result"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFace"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="16dp">
+
+        <ImageView
+            android:id="@+id/imageFace"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/attribute"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="Attributes"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lytLiveness"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textLiveness_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Liveness: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textLivenessResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Real"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textLivenessScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.83"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytQuality"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textQuality_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Face Image Quality: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textQualityResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="High"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textQualityScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.83"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytGender"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textGender_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Gender: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textGenderResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Male"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textGenderScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytAge"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textAge_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Age: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textAgeResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="40"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textAgeScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytEyeRight"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textEyeRight_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="EyeRight: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textEyeRightResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Open"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textEyeRightScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.00"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytEyeLeft"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textEyeLeft_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="EyeLeft: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textEyeLeftResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Open"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textEyeLeftScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.00"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytOcclusion"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textOcclusion_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Occlusion: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textOcclusionResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textOcclusionScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.83"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytMouth"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textMouth_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mouth: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textMouthResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Open"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textMouthScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.135"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytYaw"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textYaw_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Yaw: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textYawResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.154"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textYawScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytRoll"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textRoll_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Roll: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textRollResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.154"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textRollScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytPitch"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
+
+                <TextView
+                    android:id="@+id/textPitch_lbl"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch: "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textPitchResult"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.154"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textPitchScore"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

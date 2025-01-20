@@ -21,7 +21,7 @@
         android:id="@+id/lytIdentification_result"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:textAlignment="center"
@@ -40,18 +40,17 @@
                 app:cardBackgroundColor="@color/buttonBackgroundColor"
                 app:cardCornerRadius="70dp">
 
-                <com.bio.facerecognition.CircleImageView
+                <com.bio.facesdkdemo.CircleImageView
                     android:id="@+id/imageIdentified"
                     android:layout_width="136dp"
                     android:layout_height="136dp"
-                    android:layout_margin="2dp"></com.bio.facerecognition.CircleImageView>
+                    android:layout_margin="2dp"></com.bio.facesdkdemo.CircleImageView>
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Identified"></TextView>
+                android:gravity="center"></TextView>
 
         </LinearLayout>
 
@@ -98,11 +97,11 @@
                 app:cardBackgroundColor="@color/buttonBackgroundColor"
                 app:cardCornerRadius="70dp">
 
-                <com.bio.facerecognition.CircleImageView
+                <com.bio.facesdkdemo.CircleImageView
                     android:id="@+id/imageEnrolled"
                     android:layout_width="136dp"
                     android:layout_height="136dp"
-                    android:layout_margin="2dp"></com.bio.facerecognition.CircleImageView>
+                    android:layout_margin="2dp"></com.bio.facesdkdemo.CircleImageView>
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -117,8 +116,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/lytLiveness"
-        android:layout_width="230dp"
+        android:id="@+id/lytIdentifiedPerson"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
@@ -129,101 +128,138 @@
         app:layout_constraintTop_toBottomOf="@id/lytIdentification_result">
 
         <TextView
+            android:id="@+id/textIdentifiedPerson_lbl"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Matched Person: "
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18dp"></TextView>
+
+        <TextView
+            android:id="@+id/textIdentifiedPerson"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytLiveness"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lytIdentifiedPerson">
+
+        <TextView
             android:id="@+id/textLiveness_lbl"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Liveness score: "
+            android:text="Liveness Check: "
             android:textColor="@color/primaryTextColor"
             android:textSize="18dp"></TextView>
 
         <TextView
-            android:id="@+id/textLiveness"
+            android:id="@+id/textLivenessResult"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lytYaw"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lytLiveness">
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textYaw_lbl"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Yaw: "
-            android:textColor="@color/primaryTextColor"
-            android:textSize="18dp"></TextView>
-
-        <TextView
-            android:id="@+id/textYaw"
+            android:id="@+id/textLivenessScore"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/lytRoll"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lytYaw">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/lytYaw"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:gravity="center_horizontal|center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/lytLiveness">-->
 
-        <TextView
-            android:id="@+id/textRoll_lbl"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Roll: "
-            android:textColor="@color/primaryTextColor"
-            android:textSize="18dp"></TextView>
+<!--        <TextView-->
+<!--            android:id="@+id/textYaw_lbl"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Yaw: "-->
+<!--            android:textColor="@color/primaryTextColor"-->
+<!--            android:textSize="18dp"></TextView>-->
 
-        <TextView
-            android:id="@+id/textRoll"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="18sp" />
-    </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/textYaw"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textSize="18sp" />-->
+<!--    </LinearLayout>-->
 
-    <LinearLayout
-        android:id="@+id/lytPitch"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lytRoll">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/lytRoll"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:gravity="center_horizontal|center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/lytYaw">-->
 
-        <TextView
-            android:id="@+id/textPitch_lbl"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Pitch: "
-            android:textColor="@color/primaryTextColor"
-            android:textSize="18dp"></TextView>
+<!--        <TextView-->
+<!--            android:id="@+id/textRoll_lbl"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Roll: "-->
+<!--            android:textColor="@color/primaryTextColor"-->
+<!--            android:textSize="18dp"></TextView>-->
 
-        <TextView
-            android:id="@+id/textPitch"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="18sp" />
-    </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/textRoll"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textSize="18sp" />-->
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/lytPitch"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:gravity="center_horizontal|center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/lytRoll">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textPitch_lbl"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Pitch: "-->
+<!--            android:textColor="@color/primaryTextColor"-->
+<!--            android:textSize="18dp"></TextView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textPitch"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textSize="18sp" />-->
+<!--    </LinearLayout>-->
 
     <Button
         android:id="@+id/btnEnd"

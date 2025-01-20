@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.bio.facerecognition'
+    namespace 'com.bio.facesdkdemo'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.bio.facerecognition"
+        applicationId "com.bio.facesdkdemo"
         minSdk 24
         targetSdk 33
         versionCode 4
